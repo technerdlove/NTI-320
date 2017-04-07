@@ -1,0 +1,22 @@
+min nagios install 
+(this is for the first week of configuration.  We will be compiling from source later in the quarter)
+
+ 1  yum install nagios
+    2  systemctl enable nagios
+    3  systemctl start nagios
+    4  setenforce 0
+    5  ps aux
+    8  yum install httpd
+    9  systemctl enable httpd
+   10  systemctl start httpd
+   11  htpasswd /etc/nagios/passwd nagiosadm
+   12  wget http://www.nagios-plugins.org/download/nagios-plugins-2.1.3.tar.gz
+   13  yum install wget
+   14  yum install nagios-plugins
+   15  systemctrl restart httpd
+   16  systemctl restart httpd
+   17  yum install nrpe
+   26  htpasswd -c /etc/nagios/passwd nagiosadmin
+   27  cat /etc/nagios/passwd 
+   29  head /etc/nagios/nagios.cfg 
+   32  history
