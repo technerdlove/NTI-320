@@ -19,7 +19,10 @@ mysqladmin -u root password ***   # Set your mysql/mariadb pasword.  here *** is
                                   # Make a sql script to create a cacti db and grant the cacti user access to it
 echo "create database cacti;
 GRANT ALL ON cacti.* TO cacti@localhost IDENTIFIED BY 'cactipass';  # Set this to somthing better than 'cactipass'
-FLUSH privileges;" > stuff.sql
+FLUSH privileges;
+
+GRANT SELECT ON mysql.time_zone_name TO cacti@localhost;            # Added to fix a timezone issue
+flush privileges;" > stuff.sql
 
 mysql -u root  -p < stuff.sql    # Run your sql script
 rpm -ql cacti|grep cacti.sql     # Will list the location of the package cacti sql script
