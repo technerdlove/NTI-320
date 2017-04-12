@@ -32,6 +32,7 @@ vim /etc/cacti/db.php            # Set database username and password in $databa
 
 systemctl restart httpd.service
 sed -i 's/#//g' /etc/cron.d/cacti
+setenforce 0
 
 
 
