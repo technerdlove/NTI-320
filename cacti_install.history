@@ -15,14 +15,18 @@ systemctl start mariadb           # Start db, apache and snmp (not cacti yet)
 systemctl start httpd
 systemctl start snmpd
 
-mysqladmin -u root password ***   # Set your mysql/mariadb pasword.  here *** is your password
-                                  # Make a sql script to create a cacti db and grant the cacti user access to it
+mysqladmin -u root password ***                                     # Set your mysql/mariadb pasword.  here *** is your password
+                                                                    # Make a sql script to create a cacti db and grant the cacti user access to it
+
+mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -p mysql    # Transfer your local timezone info to mysql
+
 echo "create database cacti;
 GRANT ALL ON cacti.* TO cacti@localhost IDENTIFIED BY 'cactipass';  # Set this to somthing better than 'cactipass'
 FLUSH privileges;
 
 GRANT SELECT ON mysql.time_zone_name TO cacti@localhost;            # Added to fix a timezone issue
 flush privileges;" > stuff.sql
+
 
 mysql -u root  -p < stuff.sql    # Run your sql script
 rpm -ql cacti|grep cacti.sql     # Will list the location of the package cacti sql script
