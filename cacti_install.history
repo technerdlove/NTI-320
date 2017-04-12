@@ -30,6 +30,10 @@ vim /etc/cacti/db.php            # Set database username and password in $databa
 /etc/httpd/conf.d/cacti.conf     # Top open up access from your subnet, external host or anywere.  Note, anywere isn't recommended
                                  # If you go that route, make a security pass when you're done and tighten it down.
 
+systemctl restart httpd.service
+sed -i 's/#//g' /etc/cron.d/cacti
+
+
 
 
 
