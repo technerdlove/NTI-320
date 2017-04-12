@@ -16,7 +16,21 @@ systemctl start snmpd
 mysqladmin -u root password ***   # Set your mysql/mariadb pasword.  here *** is your password
                                   # Make a sql script to create a cacti db and grant the cacti user access to it
 echo "create database cacti;
-GRANT ALL ON cacti.* TO cacti@localhost IDENTIFIED BY 'cactipass';
+GRANT ALL ON cacti.* TO cacti@localhost IDENTIFIED BY 'cactipass';  # Set this to somthing better than 'cactipass'
 FLUSH privileges;" > stuff.sql
 
-mysql -u root  -p < stuff.sql    # Run the sql script
+mysql -u root  -p < stuff.sql    # Run your sql script
+rpm -ql cacti|grep cacti.sql     # Will list the location of the package cacti sql script
+                                 # In this case, the output is /usr/share/doc/cacti-1.0.4/cacti.sql, run that to populate your db
+                                 
+mysql -u cacti -p cacti < /usr/share/doc/cacti-1.0.4/cacti.sql
+vim /etc/cacti/db.php            # Set database username and password in $database_username = ''; and $database_password = '';
+
+
+/etc/httpd/conf.d/cacti.conf     # Top open up access from your subnet, external host or anywere.  Note, anywere isn't recommended
+                                 # If you go that route, make a security pass when you're done and tighten it down.
+
+
+
+
+
