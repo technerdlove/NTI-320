@@ -13,3 +13,10 @@ systemctl start mariadb           # Start db, apache and snmp (not cacti yet)
 systemctl start httpd
 systemctl start snmpd
 
+mysqladmin -u root password ***   # Set your mysql/mariadb pasword.  here *** is your password
+                                  # Make a sql script to create a cacti db and grant the cacti user access to it
+echo "create database cacti;
+GRANT ALL ON cacti.* TO cacti@localhost IDENTIFIED BY 'cactipass';
+FLUSH privileges;" > stuff.sql
+
+mysql -u root  -p < stuff.sql    # Run the sql script
