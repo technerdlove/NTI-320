@@ -46,5 +46,15 @@ setenforce 0
 
 
 
+End scripty part.  Further bug fixes, you'll need to update your php.ini like so:
+
+
+[root@cacti-c etc]# diff php.ini php.ini.orig 
+878c878
+< date.timezone = America/Regina
+---
+> ;date.timezone =
+
+
 
 
