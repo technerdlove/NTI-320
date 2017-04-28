@@ -1,12 +1,11 @@
-NTI 320:
+Notes for NRPE configuration and class: Thursday, April 27th
 
 
 1)	We’re going to compare ‘chain of escalation’ diagrams and network diagrams of networks from last quarter.
-
-
 Talk about them a little bit!  
 
-2)	NRPE config:
+
+++NRPE config:
 
 Server:
 yum install nagios-plugins-nrpe
