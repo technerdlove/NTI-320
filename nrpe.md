@@ -23,7 +23,7 @@ yum install nagios plugins-all
 ```bash
 yum install nrpe
 yum install nagios-plugins-nrpe
-
+yum install nagios-plugins-all
 
 vi /etc/nagios/nrpe.cfg
 
