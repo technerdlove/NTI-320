@@ -54,5 +54,7 @@ yumdownloader —source mypkg
 Configure a build environment on a server:
 https://wiki.centos.org/HowTos/SetupRpmBuildEnvironment
 
+https://www.cyberciti.biz/faq/yum-download-source-packages-from-rhn/
 
+Reminder: 'build' servers should have large hard drives.  At least 50G.
 
