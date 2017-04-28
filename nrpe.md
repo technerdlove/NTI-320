@@ -1,3 +1,5 @@
+
+
 Notes for NRPE configuration and class: Thursday, April 27th
 
 
@@ -57,4 +59,7 @@ https://wiki.centos.org/HowTos/SetupRpmBuildEnvironment
 https://www.cyberciti.biz/faq/yum-download-source-packages-from-rhn/
 
 Reminder: 'build' servers should have large hard drives.  At least 50G.
+
+http://vault.centos.org/7.2.1511/os/Source/SPackages/
+
 
