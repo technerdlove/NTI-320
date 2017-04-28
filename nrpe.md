@@ -5,7 +5,7 @@ Notes for NRPE configuration and class: Thursday, April 27th
 Talk about them a little bit!  
 
 
-++NRPE config:
+##NRPE config:
 
 Server:
 yum install nagios-plugins-nrpe
