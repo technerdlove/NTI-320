@@ -19,6 +19,5 @@ mkdir nrpe
 mv nagioscore-4.3.1 nagioscore
 mv nrpe-3.1 nrpe
 
-mkdir specs                                                                   # Make a dirrectory for our .spec files
-cd specs                                                                      # So we can keep them together
+cd ../SPECS                                                                   # head to the SPECS directory
 cp /usr/share/vim/vimfiles/template.spec .                                    # copy a template .spec file over from /usr/share
