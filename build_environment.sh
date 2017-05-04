@@ -6,3 +6,4 @@ mkdir -p /root/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
 cd ~/
 echo '%_topdir %(echo $HOME)/rpmbuild' > ~/.rpmmacros
 git clone https://github.com/NagiosEnterprises/nrpe.git
+git clone https://github.com/NagiosEnterprises/nagioscore.git
