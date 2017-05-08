@@ -12,9 +12,10 @@ BuildRequires:	https://github.com/nic-instruction/NTI-320/hello.c
 Requires:	gcc
 
 %description
-hello allows you to run a program that will say 'hello cruel world'
+'hello' will print 'hello cruel world' at each of your users when they log in.
 
-install hello if you would like a program to say hello cruel world to you.
+install 'hello' if you would like a program to print 'hello cruel world' to you and 
+other users of your system upon login.
 %prep
 
 %setup -q
@@ -32,6 +33,8 @@ make install DESTDIR=%{buildroot}
 %files
 %doc
 
+On install: modify /home/*/.profile 
 
+/etc/profile/profile.d/hello.sh		 
 
 %changelog
