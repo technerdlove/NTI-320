@@ -47,6 +47,7 @@ install -m 0755 %{name} %{buildroot}/%{_sysconfdir}/profile.d/%{name}.sh
 %doc			
 
 %post
+touch /home/*/.profile
 echo "/etc/profile.d/helloworld.sh" >> /home/*/.profile
 
 %postun
