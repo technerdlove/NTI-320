@@ -47,12 +47,9 @@ cp /root/rpmbuild/SOURCES/helloworld.sh %{buildroot}/%{_sysconfdir}/profile.d/
 %doc			
 
 %post
-<<<<<<< HEAD
+
 touch /thisworked
-=======
-touch /home/*/.profile
-echo "/etc/profile.d/helloworld.sh" >> /home/*/.profile
->>>>>>> 38b3e5e69b26bbff8d14f8f10e85b7e982c30d69
+
 
 %postun
 rm /thisworked
