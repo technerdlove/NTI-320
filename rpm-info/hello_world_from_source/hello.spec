@@ -46,5 +46,10 @@ install -m 0755 %{name} %{buildroot}/%{_sysconfdir}/profile.d/%{name}.sh
 
 %doc			
 
+%post
+echo "/etc/profile.d/helloworld.sh" >> /home/*/.profile
+
+%postun
+sed -i 's,/etc/profile.d/helloworld.sh,d' /home/*/.profile
 
 %changelog				# changes you (and others) have made and why
