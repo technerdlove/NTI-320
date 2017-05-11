@@ -24,7 +24,6 @@ other users of your system upon login.
 		
 %build					
 %configure			
-cp /root/rpmbuild/SOURCES/helloworld.sh /root/rpmbuild/BUILD/helloworld-0.1/
 make %{?_smp_mflags}	
 
 %install
@@ -34,7 +33,7 @@ mkdir -p %{buildroot}/%{_sysconfdir}/profile.d
 
 make install DESTDIR=%{buildroot}
 install -m 0755 %{name} %{buildroot}/%{_bindir}/%{name}
-install -m 0755 %{name} %{buildroot}/%{_sysconfdir}/profile.d/%{name}.sh
+cp /root/rpmbuild/SOURCES/helloworld.sh %{buildroot}/%{_sysconfdir}/profile.d/
 %clean
 
 %files					
@@ -47,9 +46,9 @@ install -m 0755 %{name} %{buildroot}/%{_sysconfdir}/profile.d/%{name}.sh
 %doc			
 
 %post
-echo "/etc/profile.d/helloworld.sh" >> /home/*/.profile
+touch /thisworked
 
 %postun
-sed -i 's,/etc/profile.d/helloworld.sh,d' /home/*/.profile
+rm /thisworked
 
 %changelog				# changes you (and others) have made and why
