@@ -24,8 +24,8 @@ other users of your system upon login.
 		
 %build					
 %configure			
-cp /root/rpmbuild/SOURCES/helloworld.sh /root/rpmbuild/BUILD/helloworld-0.1/
 make %{?_smp_mflags}	
+cp /root/rpmbuild/SOURCES/helloworld.sh /root/rpmbuild/BUILD/helloworld-0.1/
 
 %install
 rm -rf %{buildroot}
