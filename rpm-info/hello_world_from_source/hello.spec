@@ -25,19 +25,20 @@ other users of your system upon login.
 %build					
 %configure			
 make %{?_smp_mflags}	
-cp /root/rpmbuild/SOURCES/helloworld.sh /root/rpmbuild/BUILD/helloworld-0.1/
+cp /root/rpmbuild/SOURCES/helloworld.sh /root/rpmbuild/BUILD/helloworld-0.1/  #These are the binaries
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/%{_bindir}
+mkdir -p %{buildroot}/%{_bindir} # makes your directories
 mkdir -p %{buildroot}/%{_sysconfdir}/profile.d
 
-make install DESTDIR=%{buildroot}
+# You are now in root/rpmbuild/buildroot
+make install DESTDIR=%{buildroot} # when you do your make install, you need to install binaries into buildroot directory
 install -m 0755 %{name} %{buildroot}/%{_bindir}/%{name}
 cp /root/rpmbuild/SOURCES/helloworld.sh %{buildroot}/%{_sysconfdir}/profile.d/
 %clean
 
-%files					
+%files	#List everything (all files and their permissions) that needs to be in your rpm				
 %defattr(-,root,root)	
 /usr/bin/%{name}
 
