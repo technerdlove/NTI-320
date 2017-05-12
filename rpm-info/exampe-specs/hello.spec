@@ -18,18 +18,22 @@ install 'hello' if you would like a program to print 'hello cruel world' to you 
 other users of your system upon login.
 
 %prep					
-			
+# If you didn't tar zip your files yet, you can do that here			
 
 %setup -q	
 		
-
+# BEGIN unpack your tarball, run configure on it and make
 %build					
-%configure			
-make %{?_smp_mflags}	
-
+%configure
+# binaries are built here
+make %{?_smp_mflags}
+# END unpack your tarball, run configure on it and make
 
 %install
-rm -rf %{buildroot}				
+# Your working directory is now rpm-buildroot	
+# root/rpm/build/buildroot
+rm -rf %{buildroot}
+m
 make install DESTDIR=%{buildroot}
 %clean
 rm -rf %{buildroot}
