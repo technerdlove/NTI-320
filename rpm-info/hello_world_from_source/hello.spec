@@ -49,6 +49,9 @@ cp /root/rpmbuild/SOURCES/helloworld.sh %{buildroot}/%{_sysconfdir}/profile.d/
 %post
 
 touch /thisworked
+# touch /anyfile
+# echo, redirect, and append the following command into the file:
+# command[check_cool_plugin]=/usr/lib64/nagios/plugins/check_my_new_cool_plugin.sh -w 66 -c 902
 
 
 %postun
